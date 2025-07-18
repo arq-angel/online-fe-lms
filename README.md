@@ -10,13 +10,13 @@ Deployed on: [Vercel](https://)
 
 ## Features
 
-- 🔐 **Authentication** – Secure login/register with JWT
-- 👨‍🏫 **Role-based Access** – Admins and Members have different permissions
-- 📖 **Book Management** – View books with details, search functionality
-- ⭐ **Rating & Review System** – Submit and view ratings after return
-- 📦 **Borrow & Return** – Borrow available books and manage due dates
-- 📊 **Admin Dashboard** – Manage books, users, history, and reviews
-- 📱 **Responsive UI** – Optimized for all screen sizes
+- **Authentication** – Secure login/register with JWT
+- **Role-based Access** – Admins and Members have different permissions
+- **Book Management** – View books with details, search functionality
+- **Rating & Review System** – Submit and view ratings after return
+- **Borrow & Return** – Borrow available books and manage due dates
+- **Admin Dashboard** – Manage books, users, history, and reviews
+- **Responsive UI** – Optimized for all screen sizes
 
 ---
 
@@ -96,7 +96,7 @@ frontend/
 
 ```bash
 git clone https://github.com/arq-angel/online-fe-lms.git
-cd lms-frontend
+cd online-fe-lms
 ```
 
 ### 2. Install dependencies
