@@ -1,15 +1,11 @@
 import "./App.css";
-import { Button } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import { FaHome } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
 const App = () => {
-  toast("Hellooo");
   return (
     <>
-      <h1>Hello World!</h1>
-      <FaHome />
-      <Button>Click me</Button>
+      <AppRoutes />
       <ToastContainer />
     </>
   );
