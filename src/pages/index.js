@@ -2,6 +2,7 @@ export { default as HomePage } from "./home/HomePage.jsx";
 export { default as DashboardPage } from "./dashboard/DashboardPage.jsx";
 
 export { default as SignUpPage } from "./auth/SignUpPage.jsx";
+export { default as VerifyUser } from "./auth/VerifyUser.jsx";
 export { default as SignInPage } from "./auth/SignInPage.jsx";
 export { default as ForgetPasswordPage } from "./auth/ForgetPasswordPage.jsx";
 
