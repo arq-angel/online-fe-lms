@@ -1,9 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { CustomInput } from "../../components/customInput/CustomInput";
-import { signUpInputs } from "../../assets/customInputs/userSignUpInputs";
-import useForm from "../../hooks/useForm.js";
-import { signUpNewUserApi } from "../../services/authAPI.js";
+import { CustomInput } from "@components/customInput/CustomInput";
+import { signUpInputs } from "@assets/customInputs/userSignUpInputs";
+import useForm from "@hooks/useForm.js";
+import { signUpNewUserApi } from "@services/authAPI.js";
 
 const initialState = {
   fName: "",
@@ -20,7 +20,6 @@ const SignUpPage = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
 
     const { confirmPassword, ...rest } = form;
 
@@ -28,8 +27,7 @@ const SignUpPage = () => {
       return alert("Password do not match");
 
     const result = await signUpNewUserApi(rest);
-    console.log(result);
-    result?.status && setForm(initialState);
+    result?.status === "success" && setForm(initialState);
   };
 
   return (

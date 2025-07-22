@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
-import { activateNewUserApi } from "../../services/authAPI";
+import { activateNewUserApi } from "@services/authAPI";
 
 const VerifyUser = () => {
   const [isPending, setIsPending] = useState(true);
@@ -13,7 +13,6 @@ const VerifyUser = () => {
 
   const sessionId = searchParams.get("sessionId");
   const t = searchParams.get("t");
-  console.log(sessionId, t);
 
   useEffect(() => {
     if (sessionId && t && shouldFetchRef.current) {

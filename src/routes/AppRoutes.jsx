@@ -14,7 +14,7 @@ import {
   UserPage,
   Profile,
   BorrowPage,
-} from "../pages";
+} from "@pages";
 import { DefaultLayout } from "@components/layouts/DefaultLayout";
 import { UserLayout } from "@components/layouts/UserLayout";
 

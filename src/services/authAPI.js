@@ -23,3 +23,34 @@ export const activateNewUserApi = (payload) => {
   };
   return apiProcessor(obj);
 };
+
+export const signinUserApi = (payload) => {
+  const obj = {
+    url: authApiEP + "/login",
+    method: "post",
+    payload,
+    showToast: true,
+  };
+  return apiProcessor(obj);
+};
+
+// request new accessJWT api
+export const fetchNewAccessJWTApi = async () => {
+  const obj = {
+    url: authApiEP + "/renew-jwt",
+    method: "get",
+    isPrivateCall: true,
+    isRefreshJWT: true,
+  };
+  return apiProcessor(obj);
+};
+
+// logout user
+export const logoutApi = async () => {
+  const obj = {
+    url: authApiEP + "/logout",
+    method: "get",
+    isPrivateCall: true,
+  };
+  return apiProcessor(obj);
+};
