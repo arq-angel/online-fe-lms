@@ -1,5 +1,5 @@
 import { apiProcessor } from "../../services/api.js";
-const apiBaseUrl = "http://localhost:8000";
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 const userApiEP = apiBaseUrl + "/api/v1/users";
 
 // call apiProcessor to fetch the user
