@@ -1,7 +1,7 @@
 // all api calls realted to signup, login, token
 
 import { apiProcessor } from "./api.js";
-const apiBaseUrl = "http://localhost:8000";
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 const authApiEP = apiBaseUrl + "/api/v1/auth";
 
 export const signUpNewUserApi = async (payload) => {
