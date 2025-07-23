@@ -66,7 +66,7 @@ const SignInPage = () => {
 
   return (
     <div className="signin-page d-flex justify-content-center align-items-center">
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "22rem" }}>
         <Card.Body>
           <Card.Title>Welcome Back to the Library</Card.Title>
           <hr />
@@ -93,6 +93,7 @@ const SignInPage = () => {
               <Button type="submit">Sign In</Button>
             </div>
           </Form>
+          <hr />
 
           <div className="text-end my-3">
             Forget Password? <a href="/forget-password">Reset Now</a>
