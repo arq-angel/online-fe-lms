@@ -7,7 +7,7 @@ import { signinUserApi } from "@services/authAPI.js";
 import { autoLoginUser, fetchUserAction } from "@features/user/userAction.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 
 const initialState = {
@@ -20,11 +20,13 @@ const SignInPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const showLoaderRef = useRef(true);
+  const location = useLocation();
 
   const { user } = useSelector((state) => state.userInfo);
 
+  const path = location?.state?.from || "/user";
   useEffect(() => {
-    user?._id ? navigate("/user") : dispatch(autoLoginUser());
+    user?._id ? navigate(path) : dispatch(autoLoginUser());
 
     if (
       sessionStorage.getItem("accessJWT") ||
@@ -36,7 +38,7 @@ const SignInPage = () => {
     } else {
       showLoaderRef.current = false;
     }
-  }, [user?._id, navigate, dispatch]);
+  }, [user?._id, navigate, dispatch, path]);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
