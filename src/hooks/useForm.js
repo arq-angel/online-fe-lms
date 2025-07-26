@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { validator } from "../utils/validator.js";
 
 const handleOnChange = ({ e, form, setForm }) => {
-  const { name, value } = e.target;
+  let { checked, name, value } = e.target;
+
+  if (name === "status") {
+    value = checked ? "active" : "inactive";
+  }
+
   setForm({
     ...form,
     [name]: value,

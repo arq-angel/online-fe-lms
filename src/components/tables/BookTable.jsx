@@ -13,7 +13,6 @@ export const BookTable = () => {
   useEffect(() => {
     setDisplayBooks(books);
   }, [books]);
-  console.log(books);
 
   const handleOnSearch = (e) => {
     const { value } = e.target;
@@ -49,28 +48,39 @@ export const BookTable = () => {
         </thead>
         <tbody>
           {displayBooks.length > 0 &&
-            displayBooks.map(({ _id, status, title, imgUrl }, i) => (
-              <tr key={_id}>
-                <td>{i + 1}</td>
-                <td
-                  className={
-                    status === "active" ? "text-success" : "text-danger"
-                  }
-                >
-                  {status}
-                </td>
-                <td>
-                  <img src={imgUrl} alt="" width="100px" />
-                </td>
-                <td>{title}</td>
-                <td>Yes, No: available date</td>
-                <td>
-                  <Link to="/user/edit-book">
-                    <Button variant="warning">Edit</Button>
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            displayBooks.map(
+              (
+                { _id, status, title, imgUrl, available, expectedAvailable },
+                i
+              ) => (
+                <tr key={_id}>
+                  <td>{i + 1}</td>
+                  <td
+                    className={
+                      status === "active" ? "text-success" : "text-danger"
+                    }
+                  >
+                    {status}
+                  </td>
+                  <td>
+                    <img src={imgUrl} alt="" width="100px" />
+                  </td>
+                  <td>{title}</td>
+                  <td>
+                    {available
+                      ? "Yes"
+                      : !available && expectedAvailable
+                      ? `From: ${expectedAvailable.slice(0, 10)}`
+                      : "N/A"}
+                  </td>
+                  <td>
+                    <Link to={`/user/edit-book/${_id}`}>
+                      <Button variant="warning">Edit</Button>
+                    </Link>
+                  </td>
+                </tr>
+              )
+            )}
         </tbody>
       </Table>
     </div>

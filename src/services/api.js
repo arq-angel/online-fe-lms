@@ -53,7 +53,6 @@ export const apiProcessor = async ({
 
     if (error.status === 401) {
       if (msg === "jwt expired") {
-        console.log("Hello");
         // call api to get new accessJWT
         const { payload } = await fetchNewAccessJWTApi();
 

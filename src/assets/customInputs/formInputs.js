@@ -53,3 +53,65 @@ export const newBookInputs = [
     placeholder: "Book summary",
   },
 ];
+
+export const editBookInputs = [
+  {
+    label: "Title",
+    name: "title",
+    type: "text",
+    required: true,
+  },
+  {
+    label: "Slug",
+    name: "slug",
+    type: "text",
+    required: true,
+    disabled: true,
+  },
+  {
+    label: "Year",
+    name: "year",
+    type: "Number",
+    min: "1901",
+    max: new Date().getFullYear(),
+    required: true,
+  },
+  {
+    label: "Author",
+    name: "author",
+    type: "text",
+    required: true,
+  },
+  {
+    label: "Image Url",
+    name: "imgUrl",
+    type: "url",
+    required: true,
+  },
+  {
+    label: "ISBN",
+    name: "isbn",
+    type: "Number",
+    required: true,
+    disabled: true,
+  },
+  {
+    label: "Genre",
+    name: "genre",
+    type: "text",
+    required: true,
+  },
+  {
+    label: "Description",
+    name: "description",
+    type: "text",
+    as: "textarea",
+    rows: 10,
+    required: true,
+  },
+  {
+    label: "Expected Available Date",
+    name: "expectedAvailable",
+    type: "date",
+  },
+];

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NewBookPage = () => {
   return (
     <div className="p-3">
-      <div className="p-3">New Book Page</div>
+      <h3>Add New Book</h3>
       <hr />
 
       <Link to="/user/books">
