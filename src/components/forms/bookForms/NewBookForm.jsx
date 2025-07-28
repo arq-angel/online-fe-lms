@@ -4,12 +4,12 @@ import { newBookInputs } from "@assets/customInputs/formInputs.js";
 import Button from "react-bootstrap/Button";
 import useForm from "@hooks/useForm.js";
 import { postNewBookAction } from "@features/book/bookAction.js";
+import { useState } from "react";
 
 const initialState = {
   title: "",
   year: "",
   author: "",
-  imgUrl: "",
   isbn: "",
   genre: "",
   description: "",
@@ -17,13 +17,23 @@ const initialState = {
 
 const NewBookForm = () => {
   const { form, setForm, handleOnChange } = useForm(initialState);
+  const [image, setImage] = useState();
+
+  const handleOnImageSelect = (e) => {
+    setImage(e.target.files[0]);
+  };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(form);
+    const formData = new FormData();
 
-    const response = await postNewBookAction(form);
+    for (const key in form) {
+      formData.append(key, form[key]);
+    }
+    formData.append("image", image);
+
+    const response = await postNewBookAction(formData);
 
     response?.status === "success" && setForm({});
   };
@@ -39,6 +49,15 @@ const NewBookForm = () => {
             value={form[input.name] || ""}
           />
         ))}
+
+        <Form.Group className="mb-3">
+          <Form.Control
+            onChange={handleOnImageSelect}
+            type="file"
+            name="image"
+            accept="image/*"
+          />
+        </Form.Group>
 
         <div className="d-grid">
           <Button type="submit">Submit</Button>

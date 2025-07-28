@@ -22,13 +22,13 @@ export const newBookInputs = [
     required: true,
     placeholder: "Yuval Noah Harari",
   },
-  {
-    label: "Image Url",
-    name: "imgUrl",
-    type: "url",
-    required: true,
-    placeholder: "https://path-to-img-url",
-  },
+  // {
+  //   label: "Image Url",
+  //   name: "imgUrl",
+  //   type: "url",
+  //   required: true,
+  //   placeholder: "https://path-to-img-url",
+  // },
   {
     label: "ISBN",
     name: "isbn",
@@ -59,13 +59,11 @@ export const editBookInputs = [
     label: "Title",
     name: "title",
     type: "text",
-    required: true,
   },
   {
     label: "Slug",
     name: "slug",
     type: "text",
-    required: true,
     disabled: true,
   },
   {
@@ -74,32 +72,28 @@ export const editBookInputs = [
     type: "Number",
     min: "1901",
     max: new Date().getFullYear(),
-    required: true,
   },
   {
     label: "Author",
     name: "author",
     type: "text",
-    required: true,
   },
-  {
-    label: "Image Url",
-    name: "imgUrl",
-    type: "url",
-    required: true,
-  },
+  // {
+  //   label: "Image Url",
+  //   name: "imgUrl",
+  //   type: "url",
+  //   placeholder: "https://path-to-img-url",
+  // },
   {
     label: "ISBN",
     name: "isbn",
     type: "Number",
-    required: true,
     disabled: true,
   },
   {
     label: "Genre",
     name: "genre",
     type: "text",
-    required: true,
   },
   {
     label: "Description",
@@ -107,7 +101,6 @@ export const editBookInputs = [
     type: "text",
     as: "textarea",
     rows: 10,
-    required: true,
   },
   {
     label: "Expected Available Date",
