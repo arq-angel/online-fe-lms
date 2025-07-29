@@ -14,6 +14,8 @@ import {
   UserPage,
   Profile,
   BorrowPage,
+  AllBooks,
+  Search,
 } from "@pages";
 import { DefaultLayout } from "@components/layouts/DefaultLayout";
 import { UserLayout } from "@components/layouts/UserLayout";
@@ -24,6 +26,8 @@ const AppRoutes = () => {
       {/* Public pages */}
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="all-books" element={<AllBooks />} />
+        <Route path="search" element={<Search />} />
         <Route path="book/:slug" element={<BookLandingPage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="activate-user" element={<VerifyUser />} />

@@ -18,16 +18,7 @@ export const JustInSection = () => {
       <SectionTitle title="Just in!" />
       <div className="d-flex gap-2 justify-content-center flex-wrap">
         {books.length > 0 &&
-          books.map((book) => (
-            <CustomCard
-              key={book._id}
-              imgUrl={book?.imgUrl}
-              title={book?.title}
-              author={book?.author}
-              year={book?.year}
-              slug={book?.slug}
-            />
-          ))}
+          books.map((book) => <CustomCard key={book._id} {...book} />)}
       </div>
     </div>
   );
