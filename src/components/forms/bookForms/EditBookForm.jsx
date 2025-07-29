@@ -65,6 +65,7 @@ const NewBookForm = () => {
       slug,
       isbn,
       available,
+      averageRating,
       __v,
       ...rest
     } = form;
