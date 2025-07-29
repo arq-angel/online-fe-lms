@@ -25,7 +25,8 @@ export const apiProcessor = async ({
       const token = isRefreshJWT ? getRefreshJWT() : getAccessJWT();
       headers.authorization = `bearer ${token}`;
 
-      if (!token) return alert("No token");
+      if (!token)
+        return alert("Plese sign out and Log in again to make this request");
     }
 
     const responsePending = axios({
@@ -68,7 +69,7 @@ export const apiProcessor = async ({
             isRefreshJWT,
           });
         }
-      } else if (msg === "Unauthorized") {
+      } else {
         sessionStorage.removeItem("accessJWT");
         localStorage.removeItem("refreshJWT");
       }
