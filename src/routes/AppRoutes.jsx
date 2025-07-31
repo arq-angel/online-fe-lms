@@ -16,6 +16,7 @@ import {
   BorrowPage,
   AllBooks,
   Search,
+  Cart,
 } from "@pages";
 import { DefaultLayout } from "@components/layouts/DefaultLayout";
 import { UserLayout } from "@components/layouts/UserLayout";
@@ -33,6 +34,8 @@ const AppRoutes = () => {
         <Route path="activate-user" element={<VerifyUser />} />
         <Route path="login" element={<SignInPage />} />
         <Route path="forget-password" element={<ForgetPasswordPage />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="*" element={<h1>404 page not found</h1>} />
       </Route>
 
       {/* Private pages */}

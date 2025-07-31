@@ -24,7 +24,7 @@ const SignInPage = () => {
 
   const { user } = useSelector((state) => state.userInfo);
 
-  const path = location?.state?.from || "/user";
+  const path = location?.state?.from ?? "/user";
   useEffect(() => {
     user?._id ? navigate(path) : dispatch(autoLoginUser());
 

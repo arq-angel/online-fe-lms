@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import { fetchSinglePublicBookAction } from "../../features/book/bookAction";
 import { Star } from "../../components/star/Star";
 import { Reviews } from "../../components/reviews/Reviews";
+import { setCart } from "../../features/cart/cartSlice.js";
+import { toast } from "react-toastify";
 
 const BookLandingPage = () => {
   const [book, setBook] = useState({});
@@ -24,6 +26,7 @@ const BookLandingPage = () => {
 
   const { slug } = useParams();
   const { selectedBook } = useSelector((state) => state.bookInfo);
+  const { cart } = useSelector((state) => state.cartInfo);
 
   useEffect(() => {
     // first approach, locally
@@ -34,6 +37,13 @@ const BookLandingPage = () => {
 
     dispatch(fetchSinglePublicBookAction(slug));
   }, [dispatch, slug]);
+
+  const handleOnAddToCart = () => {
+    toast.success("Book is added in the cart");
+    dispatch(setCart(selectedBook));
+  };
+
+  const isBookInCart = cart.find((item) => item?._id === selectedBook?._id);
 
   useEffect(() => {
     if (selectedBook?._id) {
@@ -125,7 +135,15 @@ const BookLandingPage = () => {
                 <div className="bottom">
                   <hr />
                   <div className="d-grid">
-                    <Button variant="dark">Add to Borrowing List</Button>
+                    <Button
+                      onClick={handleOnAddToCart}
+                      variant="dark"
+                      disabled={isBookInCart}
+                    >
+                      {isBookInCart
+                        ? "Book is already in the cart"
+                        : "Add to Borrowing List"}
+                    </Button>
                   </div>
                 </div>
               </div>

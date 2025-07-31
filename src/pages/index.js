@@ -13,6 +13,8 @@ export { default as EditBookPage } from "./books/EditBookPage.jsx";
 export { default as AllBooks } from "./books/AllBooks.jsx";
 export { default as Search } from "./books/Search.jsx";
 
+export { default as Cart } from "./cart/CartPage.jsx";
+
 export { default as ReviewsPage } from "./reviews/ReviewsPage.jsx";
 
 export { default as UserPage } from "./user/UserPage.jsx";

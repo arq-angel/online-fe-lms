@@ -15,9 +15,12 @@ import { setUser } from "../../features/user/userSlice.js";
 import { FaSearch } from "react-icons/fa";
 import { ImBooks } from "react-icons/im";
 import { useRef } from "react";
+import { BsCart3 } from "react-icons/bs";
 
 export const Header = () => {
   const { user } = useSelector((state) => state.userInfo);
+  const { cart } = useSelector((state) => state.cartInfo);
+
   const dispatch = useDispatch();
   const searchRef = useRef("");
   const navigate = useNavigate();
@@ -109,6 +112,16 @@ export const Header = () => {
                   </Link>
                 </>
               )}
+              <Link
+                to="/cart"
+                className="nav-link position-relative"
+                style={{ cursor: "pointer" }}
+              >
+                <div className="cart-count position-absolute">
+                  {cart.length}
+                </div>
+                <BsCart3 className="fs-3" />
+              </Link>
             </Nav>
           </div>
         </Navbar.Collapse>
