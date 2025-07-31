@@ -4,12 +4,20 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeBookFromCart } from "../../features/cart/cartSlice.js";
+import {
+  removeBookFromCart,
+  setRecentBorrow,
+  emptyCart,
+} from "../../features/cart/cartSlice.js";
+import { postBorrowApi } from "@features/cart/cartAPI.js";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { cart } = useSelector((state) => state.cartInfo);
   const { user } = useSelector((state) => state.userInfo);
 
@@ -20,13 +28,36 @@ const Cart = () => {
     dispatch(removeBookFromCart(_id));
   };
 
-  const handleOnBorrow = () => {
+  const handleOnBorrow = async () => {
     if (confirm("Are you sure you want to borrow the books?")) {
-      // TODO
       // 1. have an API to send user and the cart book list to create
       //    new borrowing transaction in the database
-      // 2. clear cart state
-      // 3. send user to thank you page
+      const booksArg = cart.map(({ _id, title, imgUrl }) => {
+        return {
+          bookId: _id,
+          bookTitle: title,
+          thumbnail: imgUrl,
+        };
+      });
+
+      console.log(booksArg);
+
+      const pending = postBorrowApi(booksArg);
+      toast.promise(pending, {
+        pending: "Please wait...",
+      });
+
+      const { status, message, payload } = await pending;
+
+      toast[status](message);
+      // 2. store the payload coming from server
+      dispatch(setRecentBorrow(payload));
+
+      // 3. clear cart state
+      dispatch(emptyCart());
+
+      // 4. send user to thank you page
+      navigate("/user/thank-you");
     }
   };
 

@@ -17,6 +17,7 @@ import {
   AllBooks,
   Search,
   Cart,
+  ThankYouPage,
 } from "@pages";
 import { DefaultLayout } from "@components/layouts/DefaultLayout";
 import { UserLayout } from "@components/layouts/UserLayout";
@@ -48,6 +49,7 @@ const AppRoutes = () => {
         <Route path="reviews" element={<ReviewsPage />} />
         <Route path="all" element={<UserPage />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="thank-you" element={<ThankYouPage />} />
       </Route>
     </Routes>
   );

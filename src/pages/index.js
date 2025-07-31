@@ -14,6 +14,7 @@ export { default as AllBooks } from "./books/AllBooks.jsx";
 export { default as Search } from "./books/Search.jsx";
 
 export { default as Cart } from "./cart/CartPage.jsx";
+export { default as ThankYouPage } from "./cart/ThankYouPage.jsx";
 
 export { default as ReviewsPage } from "./reviews/ReviewsPage.jsx";
 
