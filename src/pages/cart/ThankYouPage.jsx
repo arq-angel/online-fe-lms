@@ -12,6 +12,8 @@ const ThankYouPage = () => {
   const dispatch = useDispatch();
   const { recentBorrow } = useSelector((state) => state.cartInfo);
 
+  console.log(recentBorrow);
+
   useEffect(() => {
     // logic...
 
@@ -29,7 +31,7 @@ const ThankYouPage = () => {
             <h1 className="text-center">Thank you</h1>
           </Alert>
           <div className="text-center">
-            <Link to="/user/borrow-history">
+            <Link to="/user/my-borrow">
               Go to your account to view your borrow list
             </Link>
           </div>
@@ -37,7 +39,7 @@ const ThankYouPage = () => {
           <div className="mt-5">
             <Table>
               <tbody>
-                {recentBorrow.length > 0 &&
+                {recentBorrow?.length > 0 &&
                   recentBorrow.map((borrow) => (
                     <tr key={borrow?._id}>
                       <td>

@@ -32,10 +32,11 @@ const Cart = () => {
     if (confirm("Are you sure you want to borrow the books?")) {
       // 1. have an API to send user and the cart book list to create
       //    new borrowing transaction in the database
-      const booksArg = cart.map(({ _id, title, imgUrl }) => {
+      const booksArg = cart.map(({ _id, title, slug, imgUrl }) => {
         return {
           bookId: _id,
           bookTitle: title,
+          bookSlug: slug,
           thumbnail: imgUrl,
         };
       });

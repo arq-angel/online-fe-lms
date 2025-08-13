@@ -12,6 +12,10 @@ import { IoExitOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutApi } from "../../services/authAPI.js";
 import { setUser } from "../../features/user/userSlice.js";
+import {
+  setMyBorrow,
+  setAllBorrow,
+} from "../../features/borrow/borrowSlice.js";
 import { FaSearch } from "react-icons/fa";
 import { ImBooks } from "react-icons/im";
 import { useRef } from "react";
@@ -35,6 +39,10 @@ export const Header = () => {
 
     // reset the user state
     dispatch(setUser({}));
+
+    // remove all the previous data
+    dispatch(setMyBorrow({}));
+    dispatch(setAllBorrow({}));
   };
 
   const handleOnSearch = (e) => {
@@ -117,9 +125,11 @@ export const Header = () => {
                 className="nav-link position-relative"
                 style={{ cursor: "pointer" }}
               >
-                <div className="cart-count position-absolute">
-                  {cart.length}
-                </div>
+                {cart.length > 0 && (
+                  <div className="cart-count position-absolute">
+                    {cart.length}
+                  </div>
+                )}
                 <BsCart3 className="fs-3" />
               </Link>
             </Nav>
